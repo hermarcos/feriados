@@ -13,4 +13,12 @@ public class XTest {
 
         assertTrue(calendarioDeFeriados.esFeriado(unDomingo));
     }
+
+    @Test
+    void test02() {
+        var calendarioDeFeriados = new CalendarioDeFeriados();
+        var unMiercoles = LocalDate.of(2024, Month.FEBRUARY, 28);
+
+        assertFalse(calendarioDeFeriados.esFeriado(unMiercoles));
+    }
 }
