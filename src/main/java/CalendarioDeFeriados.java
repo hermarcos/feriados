@@ -3,6 +3,6 @@ import java.time.LocalDate;
 
 public class CalendarioDeFeriados {
     public boolean esFeriado(LocalDate unaFecha) {
-        return unaFecha.getDayOfWeek().equals(DayOfWeek.SUNDAY);
+        return unaFecha.getDayOfWeek().equals(DayOfWeek.SUNDAY) || unaFecha.getDayOfWeek().equals(DayOfWeek.SATURDAY);
     }
 }
