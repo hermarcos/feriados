@@ -1,14 +1,16 @@
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CalendarioDeFeriados {
-    protected DayOfWeek diaDeSemanaFeriado;
+    protected final Set<DayOfWeek> diasDeSemanaFeriados = new HashSet<>();
 
     public boolean esFeriado(LocalDate unaFecha) {
-        return unaFecha.getDayOfWeek().equals(diaDeSemanaFeriado);
+        return diasDeSemanaFeriados.contains(unaFecha.getDayOfWeek());
     }
 
     public void marcarDiaDeSemanaFeriado(DayOfWeek unDiaDeSemana) {
-        diaDeSemanaFeriado = unDiaDeSemana;
+        diasDeSemanaFeriados.add(unDiaDeSemana);
     }
 }

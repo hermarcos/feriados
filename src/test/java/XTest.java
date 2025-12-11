@@ -32,4 +32,16 @@ public class XTest {
 
         assertTrue(calendarioDeFeriados.esFeriado(unSabado));
     }
+
+    @Test
+    void test04() {
+        var calendarioDeFeriados = new CalendarioDeFeriados();
+        var unSabado = LocalDate.of(2024, Month.FEBRUARY, 24);
+        var unDomingo = LocalDate.of(2024, Month.FEBRUARY, 25);
+        calendarioDeFeriados.marcarDiaDeSemanaFeriado(DayOfWeek.SATURDAY);
+        calendarioDeFeriados.marcarDiaDeSemanaFeriado(DayOfWeek.SUNDAY);
+
+        assertTrue(calendarioDeFeriados.esFeriado(unSabado));
+        assertTrue(calendarioDeFeriados.esFeriado(unDomingo));
+    }
 }
