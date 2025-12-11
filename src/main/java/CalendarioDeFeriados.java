@@ -9,8 +9,15 @@ public class CalendarioDeFeriados {
     protected final Set<MonthDay> diasDeMesFeriados = new HashSet<>();
 
     public boolean esFeriado(LocalDate unaFecha) {
-        return diasDeSemanaFeriados.contains(unaFecha.getDayOfWeek()) ||
-                diasDeMesFeriados.contains(MonthDay.from(unaFecha));
+        return esDiaDeSemanaFeriado(unaFecha) || esDiaDeMesFeriado(unaFecha);
+    }
+
+    private boolean esDiaDeMesFeriado(LocalDate unaFecha) {
+        return diasDeMesFeriados.contains(MonthDay.from(unaFecha));
+    }
+
+    private boolean esDiaDeSemanaFeriado(LocalDate unaFecha) {
+        return diasDeSemanaFeriados.contains(unaFecha.getDayOfWeek());
     }
 
     public void marcarDiaDeSemanaFeriado(DayOfWeek unDiaDeSemana) {
