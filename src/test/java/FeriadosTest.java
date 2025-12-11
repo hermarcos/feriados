@@ -3,12 +3,13 @@ import org.junit.jupiter.api.Test;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.MonthDay;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class XTest {
+public class FeriadosTest {
     @Test
-    void test01() {
+    void cualquierDiaDeSemanaPuedeSerFeriado() {
         var calendarioDeFeriados = new CalendarioDeFeriados();
         var unDomingo = LocalDate.of(2024, Month.FEBRUARY, 25);
         calendarioDeFeriados.marcarDiaDeSemanaFeriado(DayOfWeek.SUNDAY);
@@ -17,7 +18,7 @@ public class XTest {
     }
 
     @Test
-    void test02() {
+    void cualquierDiaDeSemanaPuedeNoSerFeriado() {
         var calendarioDeFeriados = new CalendarioDeFeriados();
         var unMiercoles = LocalDate.of(2024, Month.FEBRUARY, 28);
 
@@ -25,16 +26,7 @@ public class XTest {
     }
 
     @Test
-    void test03() {
-        var calendarioDeFeriados = new CalendarioDeFeriados();
-        var unSabado = LocalDate.of(2024, Month.FEBRUARY, 24);
-        calendarioDeFeriados.marcarDiaDeSemanaFeriado(DayOfWeek.SATURDAY);
-
-        assertTrue(calendarioDeFeriados.esFeriado(unSabado));
-    }
-
-    @Test
-    void test04() {
+    void masDeUnDiaDeSemanaPuedenSerFeriadosALaVez() {
         var calendarioDeFeriados = new CalendarioDeFeriados();
         var unSabado = LocalDate.of(2024, Month.FEBRUARY, 24);
         var unDomingo = LocalDate.of(2024, Month.FEBRUARY, 25);
@@ -43,5 +35,14 @@ public class XTest {
 
         assertTrue(calendarioDeFeriados.esFeriado(unSabado));
         assertTrue(calendarioDeFeriados.esFeriado(unDomingo));
+    }
+
+    @Test
+    void cualquierDiaDeMesPuedeSerFeriado() {
+        var calendarioDeFeriados = new CalendarioDeFeriados();
+        var unaNavidad = LocalDate.of(2024, Month.DECEMBER, 25);
+        calendarioDeFeriados.marcarDiaDeMesFeriado(MonthDay.from(unaNavidad));
+
+        assertTrue(calendarioDeFeriados.esFeriado(unaNavidad));
     }
 }
