@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -10,6 +11,7 @@ public class XTest {
     void test01() {
         var calendarioDeFeriados = new CalendarioDeFeriados();
         var unDomingo = LocalDate.of(2024, Month.FEBRUARY, 25);
+        calendarioDeFeriados.marcarDiaDeSemanaFeriado(DayOfWeek.SUNDAY);
 
         assertTrue(calendarioDeFeriados.esFeriado(unDomingo));
     }
@@ -26,6 +28,7 @@ public class XTest {
     void test03() {
         var calendarioDeFeriados = new CalendarioDeFeriados();
         var unSabado = LocalDate.of(2024, Month.FEBRUARY, 24);
+        calendarioDeFeriados.marcarDiaDeSemanaFeriado(DayOfWeek.SATURDAY);
 
         assertTrue(calendarioDeFeriados.esFeriado(unSabado));
     }
