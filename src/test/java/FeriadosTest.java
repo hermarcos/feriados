@@ -18,11 +18,11 @@ public class FeriadosTest {
     }
 
     @Test
-    void cualquierDiaDeSemanaPuedeNoSerFeriado() {
+    void cualquierFechaPuedeNoSerFeriado() {
         var calendarioDeFeriados = new CalendarioDeFeriados();
-        var unMiercoles = LocalDate.of(2024, Month.FEBRUARY, 28);
+        var unaFechaNoFeriado = LocalDate.of(2024, Month.FEBRUARY, 28);
 
-        assertFalse(calendarioDeFeriados.esFeriado(unMiercoles));
+        assertFalse(calendarioDeFeriados.esFeriado(unaFechaNoFeriado));
     }
 
     @Test
