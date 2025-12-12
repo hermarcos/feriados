@@ -45,4 +45,16 @@ public class FeriadosTest {
 
         assertTrue(calendarioDeFeriados.esFeriado(unaNavidad));
     }
+
+    @Test
+    void masDeUnDiaDeMesPuedenSerFeriadosALaVez() {
+        var calendarioDeFeriados = new CalendarioDeFeriados();
+        var unaNavidad = LocalDate.of(2024, Month.FEBRUARY, 24);
+        var unDiaDeAnioNuevo = LocalDate.of(2024, Month.FEBRUARY, 25);
+        calendarioDeFeriados.marcarDiaDeMesFeriado(MonthDay.from(unaNavidad));
+        calendarioDeFeriados.marcarDiaDeMesFeriado(MonthDay.from(unDiaDeAnioNuevo));
+
+        assertTrue(calendarioDeFeriados.esFeriado(unaNavidad));
+        assertTrue(calendarioDeFeriados.esFeriado(unDiaDeAnioNuevo));
+    }
 }
