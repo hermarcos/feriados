@@ -66,4 +66,16 @@ public class FeriadosTest {
 
         assertTrue(calendarioDeFeriados.esFeriado(unAniversario));
     }
+
+    @Test
+    void masDeUnaFechaEspecificaPuedenSerFeriadosALaVez() {
+        var calendarioDeFeriados = new CalendarioDeFeriados();
+        var unAniversario = LocalDate.of(2024, Month.AUGUST, 15);
+        var otroAniversario = LocalDate.of(2024, Month.APRIL, 3);
+        calendarioDeFeriados.marcarFechaEspecificaFeriado(unAniversario);
+        calendarioDeFeriados.marcarFechaEspecificaFeriado(otroAniversario);
+
+        assertTrue(calendarioDeFeriados.esFeriado(unAniversario));
+        assertTrue(calendarioDeFeriados.esFeriado(otroAniversario));
+    }
 }
