@@ -57,4 +57,13 @@ public class FeriadosTest {
         assertTrue(calendarioDeFeriados.esFeriado(unaNavidad));
         assertTrue(calendarioDeFeriados.esFeriado(unDiaDeAnioNuevo));
     }
+
+    @Test
+    void cualquierFechaEspecificaPuedeSerFeriado() {
+        var calendarioDeFeriados = new CalendarioDeFeriados();
+        var unAniversario = LocalDate.of(2024, Month.AUGUST, 15);
+        calendarioDeFeriados.marcarFechaEspecificaFeriado(unAniversario);
+
+        assertTrue(calendarioDeFeriados.esFeriado(unAniversario));
+    }
 }
