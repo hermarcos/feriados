@@ -1,3 +1,5 @@
+package feriados;
+
 import org.junit.jupiter.api.Test;
 
 import java.time.DayOfWeek;

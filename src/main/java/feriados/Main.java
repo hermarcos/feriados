@@ -1,4 +1,4 @@
-package org.example;
+package feriados;
 
 public class Main {
     static void main() {
